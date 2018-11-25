@@ -46,3 +46,12 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+/blogasek.iml
+.blogasek.iml
+/.idea/blogasek.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/php.xml
+/.idea/vcs.xml
+.idea/inspectionProfiles/
+.idea/workspace.xml
