@@ -9,6 +9,11 @@
             <p>{{ post.lead }}</p>
         </div>
     {% endfor %}
+
+    <div class="navigation">
+        {{ knp_pagination_render(posts) }}
+    </div>
+
 {% endblock %}
 
 {% block stylesheets %}
