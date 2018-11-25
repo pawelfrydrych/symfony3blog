@@ -10,6 +10,9 @@
         <span>Dodano: {{ post.createdAt | date('H:i d/m/Y') }}</span>
         <hr/>
         <h3>Komentarze</h3>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
     </div>
 {% endblock %}
 
