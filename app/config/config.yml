@@ -99,3 +99,6 @@ easy_admin:
     entities:
         - AppBundle\Entity\Post
         - AppBundle\Entity\Comment
+
+framework:
+    translator: { fallbacks: [pl] }
