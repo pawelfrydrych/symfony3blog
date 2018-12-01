@@ -12,7 +12,18 @@
         <h3>Komentarze</h3>
         {{ form_start(form) }}
         {{ form_widget(form) }}
+        <button class="btn btn-primary pull-right">Zapisz</button>
         {{ form_end(form) }}
+
+        {% for comment in post.comments %}
+
+            <div class="card bg-light mb-3" style="margin-top: 5px">
+                <div class="card-header">Dodano: {{ comment.createdAt | date('H:i d/m/Y') }}</div>
+                <div class="card-body">
+                    <p class="card-text">{{ comment.content }}</p>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
 
