@@ -2,7 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * BlogUser
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="blog_user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogUserRepository")
  */
-class BlogUser
+class BlogUser extends BaseUser
 {
     /**
      * @var int
@@ -19,7 +21,7 @@ class BlogUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var
@@ -27,6 +29,12 @@ class BlogUser
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="user")
      */
     private $comments;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->comments = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -37,5 +45,38 @@ class BlogUser
     {
         return $this->id;
     }
-}
 
+    /**
+     * Add comment
+     *
+     * @param \AppBundle\Entity\Comment $comment
+     *
+     * @return BlogUser
+     */
+    public function addComment(\AppBundle\Entity\Comment $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \AppBundle\Entity\Comment $comment
+     */
+    public function removeComment(\AppBundle\Entity\Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+}

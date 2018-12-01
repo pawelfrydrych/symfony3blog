@@ -41,31 +41,35 @@ class DefaultController extends Controller
      */
     public function showAction(Post $post, Request $request)
     {
+        $form = null;
         $comment = new Comment();
         $comment->setPost($post);
 
+        if($user = $this->getUser()) {
+            $comment->setUser($user);
 
-        $form = $this->createFormBuilder($comment)
-            ->add('content', TextareaType::class, array(
-                'label' => false,
-                'attr' => array('placeholder' => 'Treść komentarza')
-            ))
-            ->getForm();
+            $form = $this->createFormBuilder($comment)
+                ->add('content', TextareaType::class, array(
+                    'label' => false,
+                    'attr' => array('placeholder' => 'Treść komentarza')
+                ))
+                ->getForm();
 
-        $form->handleRequest($request);
-        if($form->isValid()){
+            $form->handleRequest($request);
+            if($form->isValid()){
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($comment);
-            $em->flush();
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($comment);
+                $em->flush();
 
-            $this->addFlash('success', 'Komentarz został zapisany!');
-            return $this->redirectToRoute('post_show', array('id' => $post->getId()));
+                $this->addFlash('success', 'Komentarz został zapisany!');
+                return $this->redirectToRoute('post_show', array('id' => $post->getId()));
+            }
         }
 
         return $this->render('default/show.html.twig', [
             'post' => $post,
-            'form' => $form->createView()
+            'form' => is_null($form) ? $form : $form->createView()
         ]);
     }
 }

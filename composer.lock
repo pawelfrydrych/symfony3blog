@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82d36fb15c6893b428e544ebca6cdf79",
+    "content-hash": "d43ca4aac9748a51a771ceca8e243738",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -2509,16 +2509,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.4.18",
+            "version": "v3.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "ee054aa62e535b7905c5b8e90cb49a1ad65dbfd8"
+                "reference": "a8ff5a534372763544031ae68c981d396ffeb43f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/ee054aa62e535b7905c5b8e90cb49a1ad65dbfd8",
-                "reference": "ee054aa62e535b7905c5b8e90cb49a1ad65dbfd8",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/a8ff5a534372763544031ae68c981d396ffeb43f",
+                "reference": "a8ff5a534372763544031ae68c981d396ffeb43f",
                 "shasum": ""
             },
             "require": {
@@ -2660,7 +2660,63 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2018-11-03T10:03:29+00:00"
+            "time": "2018-11-26T14:07:44+00:00"
+        },
+        {
+            "name": "symfony/templating",
+            "version": "v4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/templating.git",
+                "reference": "249b9dec50c98ef7cb4d4967888b91f095e9a15b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/templating/zipball/249b9dec50c98ef7cb4d4967888b91f095e9a15b",
+                "reference": "249b9dec50c98ef7cb4d4967888b91f095e9a15b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "require-dev": {
+                "psr/log": "~1.0"
+            },
+            "suggest": {
+                "psr/log-implementation": "For using debug logging in loaders"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Templating\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Templating Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-11-20T16:22:05+00:00"
         },
         {
             "name": "twig/extensions",

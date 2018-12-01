@@ -10,15 +10,20 @@
         <span>Dodano: {{ post.createdAt | date('H:i d/m/Y') }}</span>
         <hr/>
         <h3>Komentarze</h3>
+
+        {% if app.user %}
         {{ form_start(form) }}
         {{ form_widget(form) }}
         <button class="btn btn-primary pull-right">Zapisz</button>
         {{ form_end(form) }}
 
+        {% else %}
+            <a>Aby dodać komentarz musisz się zalogować. <a href="{{ path('fos_user_security_login') }}">Zaloguj się</a> </p>
+        {% endif %}
         {% for comment in post.comments %}
 
             <div class="card bg-light mb-3" style="margin-top: 5px">
-                <div class="card-header">Dodano: {{ comment.createdAt | date('H:i d/m/Y') }}</div>
+                <div class="card-header">Dodano: {{ comment.createdAt | date('H:i d/m/Y') }} {% if comment.user %} przez: <b>{{ comment.user }}</b> {% endif %} </div>
                 <div class="card-body">
                     <p class="card-text">{{ comment.content }}</p>
                 </div>
