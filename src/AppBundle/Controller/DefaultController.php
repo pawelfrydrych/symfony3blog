@@ -28,7 +28,8 @@ class DefaultController extends Controller
         $pagination = $paginator->paginate(
             $qb,
             $request->query->get('page', 1),
-            20
+            20,
+            array('defaultSortFieldName' => 'p.createdAt', 'defaultSortDirection' => 'desc')
         );
 
         return $this->render('default/index.html.twig', [

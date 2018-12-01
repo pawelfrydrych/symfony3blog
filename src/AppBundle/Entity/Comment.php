@@ -161,4 +161,10 @@ class Comment
     {
         return $this->user;
     }
+
+    public function __toString()
+    {
+        return $this->getContent();
+    }
+
 }
