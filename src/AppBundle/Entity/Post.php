@@ -56,6 +56,13 @@ class Post
      */
     private $comments;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="text", nullable=true)
+     */
+    private $image;
+
     public function __toString()
     {
         return $this->title;
@@ -207,5 +214,29 @@ class Post
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Post
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

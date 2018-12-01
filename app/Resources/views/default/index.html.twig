@@ -14,7 +14,16 @@
                     <div style="text-align: right"><a>Dodano: {{ post.createdAt | date('H:i d/m/Y') }}</a></div>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">{{ post.lead }}</p>
+                    <div class="text-center">
+                        {% if post.image %}
+                            <img width="200" height="200" src="{{ post.image }}"/>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <p class="card-text">
+                            {{ post.lead }}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

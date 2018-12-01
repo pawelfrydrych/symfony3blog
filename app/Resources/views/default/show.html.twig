@@ -5,6 +5,11 @@
 {% block body %}
     <h1>{{ post.title }}</h1>
     <div>
+        <div class="text-center">
+            {% if post.image %}
+                <img width="200" height="200" src="{{ post.image }}"/>
+            {% endif %}
+        </div>
         <p>{{ post.lead }}</p>
         <p>{{ post.content }}</p>
         <span>Dodano: {{ post.createdAt | date('H:i d/m/Y') }}</span>
