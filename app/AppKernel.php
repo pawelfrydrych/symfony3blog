@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new \JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new FOS\CKEditorBundle\FOSCKEditorBundle(),
             new AppBundle\AppBundle(),
         ];
 

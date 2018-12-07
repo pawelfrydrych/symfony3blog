@@ -16,7 +16,7 @@
         <div id="supportingText">
             <div id="explanation">
                 <h2>{{ post.title }}</h2>
-                <div><a>Dodano: {{ post.createdAt | date('H:i d/m/Y') }}</a></div>
+                <div><a>Dodano: {{ post.createdAt | date('d/m/Y') }}</a></div>
 
                 {% if post.image %}
                     <img width="200" height="200" src="{{ post.image }}"/>
@@ -24,7 +24,6 @@
 
                 <p>{{ post.lead }}</p>
                 <p>{{ post.content }}</p>
-                <span>Dodano: {{ post.createdAt | date('H:i d/m/Y') }}</span>
                 <hr/>
                 <h3>Komentarze</h3>
                 {% if app.user %}

@@ -35,7 +35,7 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-    form_themes: ['bootstrap_4_layout.html.twig']
+    form_themes: ['@FOSCKEditor/Form/ckeditor_widget.html.twig']
 
 # Doctrine Configuration
 doctrine:
@@ -97,8 +97,16 @@ fos_user:
 
 easy_admin:
     entities:
-        - AppBundle\Entity\Post
-        - AppBundle\Entity\Comment
+        Post:
+          class: AppBundle\Entity\Post
+          form:
+            fields:
+                - { property: 'title', type: 'fos_ckeditor'}
+                - { property: 'lead', type: 'fos_ckeditor'}
+                - { property: 'content', type: 'fos_ckeditor'}
+                - { property: 'createdAt', type: 'date'}
+        Comment:
+          class: AppBundle\Entity\Comment
 
 framework:
     translator: { fallbacks: [pl] }

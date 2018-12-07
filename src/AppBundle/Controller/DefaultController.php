@@ -19,6 +19,7 @@ class DefaultController extends Controller
         $qb = $this->getDoctrine()
             ->getManager()
             ->createQueryBuilder()
+            ->where('p.createdAt <= CURRENT_DATE()')
             ->from('AppBundle:Post', 'p')
             ->select('p');
 
