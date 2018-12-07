@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-    <div style="text-align: right">
+    <div style="color: #FFFFFF; text-align: right">
         {% if app.user %}
             Zalogowany jako {{ app.user }} {% if(is_granted('ROLE_ADMIN')) %} <a href="{{ path('admin') }}">| Panel administratora</a> {% endif %} | <a href="{{ path('fos_user_security_logout') }}">Wyloguj się</a>
             {% else %}

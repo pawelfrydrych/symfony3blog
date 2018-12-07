@@ -1,37 +1,56 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
 {% endblock %}
 {% block body %}
-    <h1>Blog</h1>
-    <br/>
-    <br/>
-    {% for post in posts %}
-        <div>
-            <div class="card bg-light mb-3" style="margin-top: 5px">
-                <div class="card-header">
-                    <div><a href="{{ path('post_show', {'id': post.id}) }}"><h2>{{ post.title }}</h2></a></div>
-                    <div style="text-align: right"><a>Dodano: {{ post.createdAt | date('H:i d/m/Y') }}</a></div>
+    <div id="container">
+        <div id="intro">
+            <div id="pageHeader">
+                <a href="{{ path('homepage') }}"><h1><span>Blog</span></h1></a>
+            </div>
+            <div id="preamble">
+                <h3><span>Witaj na moim blogu</span></h3>
+            </div>
+        </div>
+
+        <div id="supportingText">
+            {% for post in posts %}
+                <div id="explanation">
+                    <a href="{{ path('post_show', {'id': post.id}) }}"><h2>{{ post.title }}</h2></a>
+                    <div><a>Dodano: {{ post.createdAt | date('H:i d/m/Y') }}</a></div>
+
+                    {% if post.image %}
+                        <img width="200" height="200" src="{{ post.image }}"/>
+                    {% endif %}
+
+                    <p class="p1"> {{ post.lead }}</p>
                 </div>
-                <div class="card-body">
-                    <div class="text-center">
-                        {% if post.image %}
-                            <img width="200" height="200" src="{{ post.image }}"/>
-                        {% endif %}
-                    </div>
-                    <div>
-                        <p class="card-text">
-                            {{ post.lead }}
-                        </p>
-                    </div>
+            {% endfor %}
+
+            <div style="display: ruby">
+                {{ knp_pagination_render(posts) }}
+            </div>
+            <div id="footer">
+                Copyright © 2006 Your Company Name
+            </div>
+
+        </div>
+
+        <div id="linkList">
+            <div id="linkList2">
+                <div id="lselect">
+                    <ul>
+                        <li><a href="{{ path('homepage') }}">Home</a></li>
+                        <li><a href="{{ path('homepage') }}">About Us</a></li>
+                        <li><a href="{{ path('homepage') }}">News</a></li>
+                        <li><a href="{{ path('homepage') }}">Contact</a></li>
+                        <li><a href="{{ path('homepage') }}">Links</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    {% endfor %}
-
-    <div class="navigation">
-        {{ knp_pagination_render(posts) }}
     </div>
+
 
 {% endblock %}
 
