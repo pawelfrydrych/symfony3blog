@@ -104,6 +104,7 @@ easy_admin:
                 - { property: 'title', type: 'fos_ckeditor'}
                 - { property: 'lead', type: 'fos_ckeditor'}
                 - { property: 'content', type: 'fos_ckeditor'}
+                - { property: 'image', type: 'textarea'}
                 - { property: 'createdAt', type: 'date'}
         Comment:
           class: AppBundle\Entity\Comment
