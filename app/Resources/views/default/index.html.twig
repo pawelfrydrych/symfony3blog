@@ -16,14 +16,14 @@
         <div id="supportingText">
             {% for post in posts %}
                 <div id="explanation">
-                    <a href="{{ path('post_show', {'id': post.id}) }}"><h2>{{ post.title }}</h2></a>
+                    <a href="{{ path('post_show', {'id': post.id}) }}"><h2>{{ post.title | raw}}</h2></a>
                     <div><a>Dodano: {{ post.createdAt | date('d/m/Y') }}</a></div>
 
                     {% if post.image %}
                         <img width="200" height="200" src="{{ post.image }}"/>
                     {% endif %}
 
-                    <p class="p1"> {{ post.lead }}</p>
+                    <p class="p1"> {{ post.lead | raw}}</p>
                 </div>
             {% endfor %}
 
